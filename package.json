@@ -1,11 +1,13 @@
 {
-  "name": "electron-flomo-bar",
+  "name": "Flomo",
   "version": "1.0.0",
   "description": "enter your flomo via MenuBar.",
-  "main": "main.js",
+  "main": "bar.js",
   "scripts": {
-    "start": "electron .",
-    "bar": "electron bar.js"
+    "start": "electron-forge start",
+    "bar": "electron bar.js",
+    "package": "electron-forge package",
+    "make": "electron-forge make"
   },
   "repository": "https://github.com/rainyear/FlomoBar",
   "keywords": [
@@ -16,10 +18,43 @@
   "author": "rainyear",
   "license": "CC0-1.0",
   "devDependencies": {
+    "@electron-forge/cli": "^6.0.0-beta.54",
+    "@electron-forge/maker-deb": "^6.0.0-beta.54",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.54",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.54",
+    "@electron-forge/maker-zip": "^6.0.0-beta.54",
     "electron": "^12.0.4"
   },
   "dependencies": {
+    "electron-squirrel-startup": "^1.0.0",
     "electron-store": "^8.0.0",
     "menubar": "^9.0.3"
+  },
+  "config": {
+    "forge": {
+      "packagerConfig": {},
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "Flomo"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        }
+      ]
+    }
   }
 }

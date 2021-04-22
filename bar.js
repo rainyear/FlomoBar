@@ -19,7 +19,7 @@ const bwOption = {
 
 const mb = menubar({
   browserWindow: bwOption,
-  icon: "icon_dark.png"});
+  icon: path.join(__dirname, "icon_dark.png")});
 
 
 let isShown = false;
