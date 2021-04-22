@@ -1,0 +1,25 @@
+* {
+  font-family: 'DIN-Regular', 'PingFang SC', Helvetica, Arial, sans-serif;
+}
+body {
+  padding:4%;
+  overflow: hidden;
+}
+[type="checkbox"].modal+div .card {
+  max-height: 85%;
+  max-width: 85%;
+}
+div.setting {
+  height: 90%;
+}
+textarea#flomoArea {
+  width: 100%;
+  border: 2px solid #E8E8E8;
+  border-radius: 8px;
+  color: #323232;
+  padding: 20px 18px;
+  resize: none;
+}
+.toast {
+  display: none;
+}

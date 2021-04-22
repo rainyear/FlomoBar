@@ -1,19 +1,65 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-    <title>Hello World!</title>
-  </head>
-  <body>
-    <h1>Hello World!</h1>
-    We are using Node.js <span id="node-version"></span>,
-    Chromium <span id="chrome-version"></span>,
-    and Electron <span id="electron-version"></span>.
 
-    <!-- You can also require other files to run in this process -->
-    <script src="./renderer.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+  <link href="./assets/pure-min.css" rel="stylesheet">
+  <link href="./assets/pure-modal.css" rel="stylesheet">
+  <link href="./assets/style.css" rel="stylesheet">
+  <title>Flomo Bar</title>
+</head>
+
+<body>
+  <div class="pure-g">
+    <div class="pure-u-1-1" style="z-index: 999;" id="msgCont"></div>
+  </div>
+  <input type="checkbox" id="modal-setting" class="modal-state">
+  <div class="modal">
+    <label class="modal__bg" for="modal-setting"></label>
+    <div class="modal__inner">
+      <label class="modal__close" for="modal-setting"></label>
+      <h2>设置</h2>
+      <form name="settings" class="pure-form pure-form-aligned">
+        <div class="pure-g">
+          <label class="pure-u-1-8">
+            <b>API</b>
+          </label>
+          <input type="text" id="api" name="api" placeholder="" class="pure-u-7-8" />
+        </div>
+        <div class="pure-g">
+          <label class="pure-u-1-8">
+            <b>Tag</b>
+          </label>
+          <input type="text" id="tag" name="tag" placeholder="" class="pure-u-7-8" />
+        </div>
+
+        <label type="submit" class="btn" onclick="return SaveSetting();">保存</label>
+      </form>
+    </div>
+  </div>
+
+  <div class="pure-g">
+    <textarea id="flomoArea" name="flomoArea" rows="4" class="pure-u-1-1"></textarea>
+  </div>
+  <div class="pure-g">
+    <hr />
+  </div>
+  <div class="pure-g">
+    <div class="pure-u-1-4">
+      <button class="pure-button" style="background-color: #55BB8E; color:aliceblue;" onclick="send();">Send to
+        flomo</button>
+    </div>
+    <div class="pure-u-1-4">
+    </div>
+    <div class="pure-u-1-4">
+    </div>
+    <div class="pure-u-1-4">
+      <label class="pure-button" for="modal-setting">设置</button>
+    </div>
+  </div>
+  <!-- You can also require other files to run in this process -->
+  <script src="./assets/renderer.js"></script>
+</body>
+
 </html>
