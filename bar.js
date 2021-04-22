@@ -14,7 +14,8 @@ const bwOption = {
     nodeIntegration: true,
     contextIsolation: false
   },
-  resizable: false
+  resizable: false,
+  icon: "icon.icns"
 };
 
 const mb = menubar({
