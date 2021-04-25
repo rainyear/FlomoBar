@@ -1,7 +1,7 @@
-FlomoBar
+[Flomo](https://flomo.app)-Bar
 ===
 
-> `[Flomo](https://flomo.app)` 桌面客户端集成菜单栏入口（Electron）
+> `Flomo` 桌面客户端集成菜单栏入口（Electron）
 
 #### 现在，你可以从菜单栏入口快速打开 Flomo 输入框
 
