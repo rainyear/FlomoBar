@@ -7,16 +7,16 @@ FlomoBar
 
 #### 或者，你更喜欢快捷键呼出（`Shift + Cmd + F`）
 
-![]("screenshots/FlomoBar_enter.png")
+![FlomoBar_enter](screenshots/FlomoBar_enter.png)
 
 
 #### 叮咚！从 `FlomoBar` 成功添加一条记录
 
-![]("screenshots/Notification.png")
+![Notification](screenshots/Notification.png)
 
 #### 摆脱浏览器，即刻进入 Flomo 桌面端！
 
-![]("screenshots/Desktop.png")
+![Desktop](screenshots/Desktop.png)
 
 
 ---
