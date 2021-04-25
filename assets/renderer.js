@@ -7,6 +7,7 @@
 const API_INPUT_NAME = "api"
 const TAG_INPUT_NAME = "tag"
 const Store = require('electron-store')
+const {ipcRenderer } = require('electron')
 const db = new Store()
 
 var SAVED_API = db.get(API_INPUT_NAME) || ""
@@ -38,6 +39,8 @@ function send(){
     console.log(`Sending ${text.value} to ${SAVED_API}`)
     post(text.value, ()=>{
       text.value = "";
+      notification()
+
     });
   }
 }
@@ -71,4 +74,18 @@ function toast(text) {
   setTimeout(() => {
     msg.remove()
   }, 2000)
+}
+
+function openMainWin() {
+  console.log("show main window")
+  ipcRenderer.send('SHOWMAIN', 'open')
+}
+function notification() {
+  const notfy = new Notification('Flomo 🚀', {
+    body: '成功添加一条记录！'
+  })
+  notfy.onclick = () => {
+    ipcRenderer.send('SHOWMAIN', 'open')
+  }
+  notfy.show()
 }

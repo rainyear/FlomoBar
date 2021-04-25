@@ -1,14 +1,36 @@
 const { menubar } = require('menubar')
 const Store = require('electron-store')
 const path = require('path')
-const { globalShortcut } = require('electron');
+const { globalShortcut, BrowserWindow, ipcMain, Notification } = require('electron');
 
+var mainWin
+function createMainWin() {
+  let win = new BrowserWindow({
+    width: 400,
+    height: 800,
+    icon: "icon.icns",
+    resizable: false,
+    webPreferences: {
+      preload: path.join(__dirname, 'preload.js'),
+      nodeIntegration: true,
+      contextIsolation: false
+    } ,
+    modal: true,
+    show: false
+  })
+
+  win.loadURL("https://flomo.app")
+  win.once('closed', ()=>{
+    mainWin = null
+  })
+  return win
+}
 
 Store.initRenderer()
 
 const bwOption = {
   width: 600,
-  height: 250,
+  height: 220,
   webPreferences: {
     preload: path.join(__dirname, 'preload.js'),
     nodeIntegration: true,
@@ -20,7 +42,8 @@ const bwOption = {
 
 const mb = menubar({
   browserWindow: bwOption,
-  icon: path.join(__dirname, "icon_dark.png")});
+  showOnAllWorkspaces: true,
+  icon: path.join(__dirname, "icon.png")});
 
 
 let isShown = false;
@@ -36,6 +59,18 @@ mb.on('ready', () => {
   globalShortcut.register('Command+Shift+f', () => {
     isShown ? mb.hideWindow() : mb.showWindow()
   });
+  mainWin = createMainWin()
 });
 
+function showMainWin() {
+  if (!mainWin) {
+    mainWin = createMainWin()
+  }
+  mainWin.reload()
+  mainWin.show()
+}
 
+
+ipcMain.on('SHOWMAIN', (event, arg) => {
+  showMainWin()
+})
