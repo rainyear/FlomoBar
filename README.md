@@ -7,7 +7,7 @@ FlomoBar
 
 #### 或者，你更喜欢快捷键呼出（`Shift + Cmd + F`）
 
-![FlomoBar_enter](screenshots/FlomoBar_enter.png)
+![FlomoBar_enter](screenshots/FlomoBar_Enter.png)
 
 
 #### 叮咚！从 `FlomoBar` 成功添加一条记录
